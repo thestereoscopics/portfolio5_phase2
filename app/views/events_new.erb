@@ -1,0 +1,31 @@
+<div>
+  <h1>Create New Event</h1>
+  
+  <form id="new-event" method="post" action="/events/create">
+    <label class="label" for="name">Organizer's Name</label>
+    <input type="text" name="event[name]" placeholder="e.g., Seqouia's or Richard" <% if @event %> value=<%= @event.organizer_name %> <% end %>  required>
+    <br>
+
+    <label class="label" for="email">Email</label>
+    <input type="email" name="event[email]" placeholder="e.g., me@example.com" <% if @event %> value=<%= @event.organizer_email %> <% end %> required>
+    <br>
+    
+    <label class="label" for="date">Date</label>
+    <input type="date" name="event[date]" placeholder="e.g., 2013-09-03" <% if @event %> value=<%= @event.date %> <% end %>required>
+    <% if @date %>
+      <span id="red"> * <%= @date %></span>
+    <% end %>
+    <br>
+    <label class="label" for="title">Event Title</label>
+    <input type="text" name="event[title]" placeholder="e.g., Hopscotch Competition" <% if @event %> value=<%= @event.title %> <% end %> required>
+    <% if @title %>
+     <span id="red"> * <%= @title %></span>
+    <% end %>
+    <br>
+
+    <div class="submit"><input type="submit" value="Create Event"></div>
+  </form>
+
+
+</div>
+
